@@ -1,5 +1,6 @@
 package com.example.chris.myapplication.Vista;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,7 +29,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements RecyclerView.OnScrollChangeListener  {
+public class MainActivity extends AppCompatActivity implements RecyclerView.OnScrollChangeListener {
     private SearchView mSearchView;
     private MenuItem searchMenuItem;
     private SearchView.OnQueryTextListener listener;
@@ -170,8 +171,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnSc
 
                 //Adding data to the superhero object
                 superHero.setImageUrl(json.getString(Conexion.TAG_IMAGE_URL));
-                //superHero.setName(json.getString(Conexion.TAG_NAME));
-                //superHero.setPublisher(json.getString(Conexion.TAG_PUBLISHER));
+                superHero.setName(json.getString(Conexion.TAG_NAME));
+                superHero.setPublisher(json.getString(Conexion.TAG_PUBLISHER));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -200,6 +201,5 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnSc
             getData();
         }
     }
-
 
 }
