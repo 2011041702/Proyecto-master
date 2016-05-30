@@ -23,6 +23,24 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>  {
     private Context context;
 
 
+
+    public class ViewHolder extends RecyclerView.ViewHolder{
+        //Views
+        public NetworkImageView imageView;
+        public TextView textViewName;
+        public TextView textViewPublisher;
+
+        //Initializing Views
+        public ViewHolder(View itemView) {
+            super(itemView);
+            imageView = (NetworkImageView) itemView.findViewById(R.id.imageViewHero);
+            textViewName = (TextView) itemView.findViewById(R.id.textViewName);
+            textViewPublisher = (TextView) itemView.findViewById(R.id.textViewPublisher);
+        }
+
+    }
+
+
     //List to store all superheroes
     List<SuperHero> superHeroes;
 
@@ -50,7 +68,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>  {
 
         //Loading image from url
         imageLoader = CustomVolleyRequest.getInstance(context).getImageLoader();
-        imageLoader.get(superHero.getImageUrl(), ImageLoader.getImageListener(holder.imageView, R.drawable.loading_spinner, android.R.drawable.ic_dialog_alert));
+        //imageLoader.get(superHero.getImageUrl(), ImageLoader.getImageListener(holder.imageView, R.drawable.loading_spinner, android.R.drawable.ic_dialog_alert));
 
         //Showing data on the views
         holder.imageView.setImageUrl(superHero.getImageUrl(), imageLoader);
@@ -66,20 +84,5 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>  {
         return superHeroes.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        //Views
-        public NetworkImageView imageView;
-        public TextView textViewName;
-        public TextView textViewPublisher;
 
-        //Initializing Views
-        public ViewHolder(View itemView) {
-            super(itemView);
-            imageView = (NetworkImageView) itemView.findViewById(R.id.imageViewHero);
-            textViewName = (TextView) itemView.findViewById(R.id.textViewName);
-            textViewPublisher = (TextView) itemView.findViewById(R.id.textViewPublisher);
-
-        }
-
-    }
 }
