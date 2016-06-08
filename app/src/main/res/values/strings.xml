@@ -2,4 +2,8 @@
     <string name="app_name">NetChichos</string>
     <string name="search">Search</string>
     <string name="action_settings">Settings</string>
+
+    <string name="marca_usuario">Añadido por %s</string>
+    <string name="comentarios_formato">%s Comentarios</string>
+    <string name="likes_formato">%s Likes</string>
 </resources>

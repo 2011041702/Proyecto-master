@@ -8,5 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:icon">@drawable/ic_search_white_24dp</item>
     </style>
+    <style name="TemaBase" parent="Theme.AppCompat.Light.DarkActionBar">
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="colorPrimary">@color/colorPrimario</item>
+        <item name="colorPrimaryDark">@color/colorPrimarioOscuro</item>
+        <item name="colorAccent">@color/colorAcento</item>
+    </style>
 
 </resources>

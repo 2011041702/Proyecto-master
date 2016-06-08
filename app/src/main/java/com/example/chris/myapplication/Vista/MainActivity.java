@@ -40,21 +40,13 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnSc
     private MenuItem searchMenuItem;
     private SearchView.OnQueryTextListener listener;
 
-
-    //Creating a List of superheroes
     private List<SuperHero> listSuperHeroes;
-
-    //Creating Views
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter adapter;
 
-    //Volley Request Queue
     private RequestQueue requestQueue;
-
-    //The request counter to send ?page=1, ?page=2  requests
     private int requestCount = 1;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,27 +81,17 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnSc
                 SuperHero asd = listSuperHeroes.get(position);
                 Toast.makeText(getApplicationContext(),asd.getName() + " is selected!", Toast.LENGTH_SHORT).show();
             }
-
             @Override
             public void onLongClick(View view, int position) {
-
             }
         }));
 
-        //Initializing our superheroes list
         listSuperHeroes = new ArrayList<>();
         requestQueue = Volley.newRequestQueue(this);
-
-        //Calling method to get data to fetch data
         getData();
 
-        //Adding an scroll change listener to recyclerview
         recyclerView.setOnScrollChangeListener(this);
-
-        //initializing our adapter
         adapter = new CardAdapter(listSuperHeroes, this);
-
-        //Adding adapter to recyclerview
         recyclerView.setAdapter(adapter);
     }
 
